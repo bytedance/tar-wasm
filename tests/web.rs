@@ -20,6 +20,10 @@ fn create_tar() {
             content: "bar".as_bytes().to_vec(),
         },
     ];
-    let tar = tar(&JsValue::from_serde(&files).unwrap());
+    let tarBuilder = TarBuilder::new();
+    for file in files {
+        tarBuilder.add_file(&file.name, &file.content);
+    }
+    let tar = tarBuilder.finish();
     assert!(tar.len() > 0);
 }

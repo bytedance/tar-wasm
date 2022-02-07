@@ -7,12 +7,15 @@ SHELL = /bin/bash
 
 build: pkg
 
-pkg: src
+pkg: src Cargo.toml README.md
 	wasm-pack build
 	sed -i -e 's/"name": "tar-wasm"/"name": "@byted\/tar-wasm"/g' pkg/package.json
 
-test: src tests
+test: src tests Cargo.toml
 	wasm-pack test
 
 clean: 
 	rm -rf ./pkg
+
+publish: pkg
+	cd pkg; npm publish

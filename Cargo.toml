@@ -1,6 +1,6 @@
 [package]
 name = "tar-wasm"
-version = "0.1.0"
+version = "0.1.1"
 authors = ["Eli Gao <eli.gao@bytedance.com>"]
 edition = "2018"
 

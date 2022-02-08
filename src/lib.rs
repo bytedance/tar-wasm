@@ -33,9 +33,8 @@ impl TarBuilder {
     }
     pub fn add_file(&mut self, name: &str, content: &[u8]) -> Result<(), JsError> {
         let mut header = Header::new_gnu();
-        header.set_path(&name)?;
         header.set_size(content.len() as u64);
-        self.builder.append(&header, content)?;
+        self.builder.append_data(&mut header, name, content)?;
         Ok(())
     }
     pub fn finish(self) -> Result<Vec<u8>, JsError> {

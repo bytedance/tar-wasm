@@ -1,6 +1,8 @@
 mod utils;
 
+// use anyhow::Error;
 use tar::{Builder, Header};
+use utils::set_panic_hook;
 use wasm_bindgen::prelude::*;
 
 // When the `wee_alloc` feature is enabled, use `wee_alloc` as the global
@@ -24,17 +26,20 @@ pub struct TarBuilder {
 impl TarBuilder {
     #[wasm_bindgen(constructor)]
     pub fn new() -> TarBuilder {
+        set_panic_hook();
         TarBuilder {
             builder: Builder::new(Vec::new()),
         }
     }
-    pub fn add_file(&mut self, name: &str, content: &[u8]) {
+    pub fn add_file(&mut self, name: &str, content: &[u8]) -> Result<(), JsError> {
         let mut header = Header::new_gnu();
-        header.set_path(&name);
+        header.set_path(&name)?;
         header.set_size(content.len() as u64);
-        self.builder.append(&header, content);
+        self.builder.append(&header, content)?;
+        Ok(())
     }
-    pub fn finish(self) -> Vec<u8> {
-        self.builder.into_inner().unwrap()
+    pub fn finish(self) -> Result<Vec<u8>, JsError> {
+        let res = self.builder.into_inner()?;
+        Ok(res)
     }
 }

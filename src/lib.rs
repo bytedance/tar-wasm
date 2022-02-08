@@ -4,6 +4,7 @@ mod utils;
 use tar::{Builder, Header};
 use utils::set_panic_hook;
 use wasm_bindgen::prelude::*;
+use yazi::*;
 
 // When the `wee_alloc` feature is enabled, use `wee_alloc` as the global
 // allocator.
@@ -20,6 +21,7 @@ extern "C" {
 #[wasm_bindgen]
 pub struct TarBuilder {
     builder: Builder<Vec<u8>>,
+    enable_gzip: bool,
 }
 
 #[wasm_bindgen]
@@ -29,6 +31,7 @@ impl TarBuilder {
         set_panic_hook();
         TarBuilder {
             builder: Builder::new(Vec::new()),
+            enable_gzip: false,
         }
     }
     pub fn add_file(&mut self, name: &str, content: &[u8]) -> Result<(), JsError> {
@@ -37,8 +40,19 @@ impl TarBuilder {
         self.builder.append_data(&mut header, name, content)?;
         Ok(())
     }
+    pub fn set_gzip(&mut self, enable_gzip: bool) {
+        self.enable_gzip = enable_gzip;
+    }
     pub fn finish(self) -> Result<Vec<u8>, JsError> {
-        let res = self.builder.into_inner()?;
-        Ok(res)
+        let tar_buffer = self.builder.into_inner()?;
+        if self.enable_gzip {
+            let tar_gz_buffer = compress(&tar_buffer, Format::Zlib, CompressionLevel::Default);
+            match tar_gz_buffer {
+                Ok(tar_gz_buffer) => Ok(tar_gz_buffer),
+                Err(err) => Err(JsError::new(&format!("{:?}", err))),
+            }
+        } else {
+            Ok(tar_buffer)
+        }
     }
 }

@@ -7,7 +7,7 @@ SHELL = /bin/bash
 
 build: pkg
 
-pkg: src Cargo.toml README.md
+pkg: src/* Cargo.toml README.md
 	wasm-pack build
 	sed -i -e 's/"name": "tar-wasm"/"name": "@byted\/tar-wasm"/g' pkg/package.json
 

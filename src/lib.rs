@@ -1,7 +1,5 @@
 mod utils;
 
-use std::time::SystemTime;
-
 // use anyhow::Error;
 use tar::{Builder, Header};
 use utils::set_panic_hook;
@@ -43,8 +41,6 @@ impl TarBuilder {
         header.set_mode(0o777);
         header.set_uid(0);
         header.set_gid(0);
-        let mtime = SystemTime::now().duration_since(SystemTime::UNIX_EPOCH)?;
-        header.set_mtime(mtime.as_secs());
         self.builder.append_data(&mut header, name, content)?;
         Ok(())
     }

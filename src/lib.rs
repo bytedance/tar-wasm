@@ -1,6 +1,6 @@
 mod utils;
 
-use std::time::{self, SystemTime};
+use std::time::SystemTime;
 
 // use anyhow::Error;
 use tar::{Builder, Header};

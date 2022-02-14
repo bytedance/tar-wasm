@@ -1,5 +1,7 @@
 mod utils;
 
+use std::time::{self, SystemTime};
+
 // use anyhow::Error;
 use tar::{Builder, Header};
 use utils::set_panic_hook;
@@ -37,6 +39,12 @@ impl TarBuilder {
     pub fn add_file(&mut self, name: &str, content: &[u8]) -> Result<(), JsError> {
         let mut header = Header::new_gnu();
         header.set_size(content.len() as u64);
+        // TODO: use stricter permission
+        header.set_mode(0o777);
+        header.set_uid(0);
+        header.set_gid(0);
+        let mtime = SystemTime::now().duration_since(SystemTime::UNIX_EPOCH)?;
+        header.set_mtime(mtime.as_secs());
         self.builder.append_data(&mut header, name, content)?;
         Ok(())
     }

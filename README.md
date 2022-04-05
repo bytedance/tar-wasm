@@ -4,35 +4,46 @@ An experimental wasm-based tar implementation for Node.js and browsers.
 
 ## Usage
 
-### 🛠️ Build
+### Install
 
-```
-make build
-```
-
-### 🔬 Test in Headless Browsers with `wasm-pack test`
-
-```
-wasm-pack test --headless --firefox
+```bash
+npm install @byted/tar-wasm
 ```
 
-### 🎁 Publish to NPM with `wasm-pack publish`
+### Example
 
-Make sure to use `make build` to make sure scoped npm package name is correctly set.
+```typescript
+import { TarBuilder } from "@byted/tar-wasm";
 
+// Create a new tar builder
+const tarBuilder = new TarBuilder();
+
+// Optionally enable gzip compression
+// tarBuilder.set_gzip(true);
+
+for (const file of files) {
+  // Add files to the tar
+  tarBuilder.add_file(file.name, file.content);
+}
+
+// Finish building the tar and get the result
+const tar: UInt8Array = tarBuilder.finish();
+
+// Optionally convert the tar to a Blob or whatever
+const tarBlob = new Blob([tar], { type: "application/x-tar" });
 ```
-wasm-pack publish
-```
 
-## About
+## Performance Notes
 
-This package is generated with [wasm-pack](https://github.com/rustwasm/wasm-pack)
+This library is optimized for performance via WebAssembly.
+However, WebAssembly runs in the main thread by default and can be computationally expensive by nature depending on the size of the tar.
 
-## 🔋 Batteries Included
+We recommend using [Web Worker](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API) or [Worker Threads](https://nodejs.org/api/worker_threads.html) to run the tar building in a separate thread.
+You may want to refer to [Greenlet](https://github.com/developit/greenlet) for a lightweight implementation.
 
-- [`wasm-bindgen`](https://github.com/rustwasm/wasm-bindgen) for communicating
-  between WebAssembly and JavaScript.
-- [`console_error_panic_hook`](https://github.com/rustwasm/console_error_panic_hook)
-  for logging panic messages to the developer console.
-- [`wee_alloc`](https://github.com/rustwasm/wee_alloc), an allocator optimized
-  for small code size.
+## TODO
+
+- [] Include a Promise API working from a separate worker thread.
+- [] Add support for reading and writing tar files.
+- [] Benchmarks
+- [] Tests

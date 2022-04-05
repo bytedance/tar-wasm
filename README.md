@@ -41,9 +41,25 @@ However, WebAssembly runs in the main thread by default and can be computational
 We recommend using [Web Worker](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API) or [Worker Threads](https://nodejs.org/api/worker_threads.html) to run the tar building in a separate thread.
 You may want to refer to [Greenlet](https://github.com/developit/greenlet) for a lightweight implementation.
 
+## Benchmarks
+
+Results on my machine
+(Intel(R) Xeon(R) Platinum 8269CY CPU @ 2.50GHz):
+
+```
+Running benchmark...
+Generated 1001 random files to test in 191.13816452026367ms
+tar-wasm: 24.62919044494629ms (baseline)
+tar-js: 3943.49857711792ms (160.11482740095886x slower than tar-wasm)
+tarts: 1251.595199584961ms (50.817553357373065x slower than tar-wasm)
+```
+
+See `./benchmark` folder for more details.
+
 ## TODO
 
 - [] Include a Promise API working from a separate worker thread.
 - [] Add support for reading and writing tar files.
 - [] Benchmarks
 - [] Tests
+- [] Proper support of Node.js environment

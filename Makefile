@@ -12,7 +12,7 @@ pkg: src/* Cargo.toml README.md
 	sed -i -e 's/"name": "tar-wasm"/"name": "@byted\/tar-wasm"/g' pkg/package.json
 
 test: src tests Cargo.toml
-	wasm-pack test --chrome
+	wasm-pack test --chrome --headless
 
 clean: 
 	rm -rf ./pkg

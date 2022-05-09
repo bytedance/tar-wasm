@@ -1,6 +1,6 @@
 # @byted/tar-wasm
 
-An experimental wasm-based tar implementation for Node.js and browsers.
+An experimental wasm-based tar implementation for browsers.
 
 ## Usage
 
@@ -60,6 +60,6 @@ See `./benchmark` folder for more details.
 
 - [] Include a Promise API working from a separate worker thread.
 - [] Add support for reading and writing tar files.
-- [] Benchmarks
-- [] Tests
-- [] Proper support of Node.js environment
+- [] Support of Node.js environment
+- [x] Tests
+- [x] Benchmarks

@@ -24,13 +24,13 @@ fn create_tar() {
             content: "bar".as_bytes().to_vec(),
         },
     ];
-    let mut tarBuilder = TarBuilder::new();
+    let mut tar_builder = TarBuilder::new();
     for file in files {
-        tarBuilder.add_file(&file.name, &file.content);
+        tar_builder.add_file(&file.name, &file.content);
     }
-    let tarResult = tarBuilder.finish();
+    let tar_result = tar_builder.finish();
 
-    match tarResult {
+    match tar_result {
         Ok(tar) => {
             assert!(tar.len() > 0);
         }

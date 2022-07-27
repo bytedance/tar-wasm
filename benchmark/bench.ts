@@ -1,5 +1,5 @@
 import { performance } from "perf_hooks";
-import { TarBuilder } from "@byted/tar-wasm";
+import { TarBuilder } from "tar-wasm";
 import TarJs from "tar-js";
 import Tarts from "tarts";
 import { LoremIpsum } from "lorem-ipsum";

@@ -1,6 +1,6 @@
 {
   "dependencies": {
-    "@byted/tar-wasm": "../pkg",
+    "tar-wasm": "../pkg",
     "lorem-ipsum": "^2.0.4",
     "tar-js": "^0.3.0",
     "tarts": "^2.0.1"

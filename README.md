@@ -1,4 +1,4 @@
-# @byted/tar-wasm
+# tar-wasm
 
 An experimental wasm-based tar implementation for browsers.
 
@@ -7,13 +7,13 @@ An experimental wasm-based tar implementation for browsers.
 ### Install
 
 ```bash
-npm install @byted/tar-wasm
+npm install tar-wasm
 ```
 
 ### Example
 
 ```typescript
-import { TarBuilder } from "@byted/tar-wasm";
+import { TarBuilder } from "tar-wasm";
 
 // Create a new tar builder
 const tarBuilder = new TarBuilder();

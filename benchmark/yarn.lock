@@ -2,7 +2,7 @@
 # yarn lockfile v1
 
 
-"@byted/tar-wasm@../pkg":
+"tar-wasm@../pkg":
   version "0.1.5"
 
 "@cspotcode/source-map-support@^0.8.0":

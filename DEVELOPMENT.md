@@ -2,6 +2,10 @@
 
 This package is generated with [wasm-pack](https://github.com/rustwasm/wasm-pack)
 
+### Install wasm-pack
+
+Follow the steps on https://rustwasm.github.io/wasm-pack/installer/
+
 ### 🛠️ Build
 
 ```
@@ -11,7 +15,7 @@ make build
 ### 🔬 Test in Headless Browsers with `wasm-pack test`
 
 ```
-wasm-pack test --headless --firefox
+wasm-pack test --headless --chrome
 ```
 
 ### 🎁 Publish to NPM with `wasm-pack publish`

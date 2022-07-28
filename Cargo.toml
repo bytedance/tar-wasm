@@ -4,7 +4,7 @@ version = "0.1.5"
 authors = ["Eli Gao <eli.gao@bytedance.com>"]
 edition = "2018"
 description = "An experimental wasm-based tar implementation for browsers."
-license = "MIT/Apache-2.0"
+license = "MIT"
 
 [lib]
 crate-type = ["cdylib", "rlib"]

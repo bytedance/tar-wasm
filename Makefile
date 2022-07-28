@@ -3,19 +3,28 @@ SHELL = /bin/bash
 .DEFAULT_GOAL := build
 .DELETE_ON_ERROR:
 .SUFFIXES:
-.PHONY: clean test
+.PHONY: clean test benchmark
 
-build: pkg
+build: pkg/bundler
 
-pkg: src/* Cargo.toml README.md
-	wasm-pack build
-	sed -i -e 's/"name": "tar-wasm"/"name": "@byted\/tar-wasm"/g' pkg/package.json
+# wasm-pack targets bundlers by default
+# https://rustwasm.github.io/docs/wasm-pack/commands/build.html#target
+pkg/bundler: src/* Cargo.toml README.md
+	wasm-pack build --target bundler --out-dir pkg/bundler
 
 test: src tests Cargo.toml
 	wasm-pack test --chrome --headless
 
-clean: 
-	rm -rf ./pkg
+# for benchmarking only
+pkg/nodejs: src/* Cargo.toml README.md
+	wasm-pack build --target nodejs --out-dir pkg/nodejs
 
-publish: pkg
-	cd pkg; npm publish
+clean: 
+	rm -rf ./pkg ./target ./benchmark/node_modules
+
+
+bench: pkg/nodejs
+	cd benchmark; yarn install; yarn bench;
+
+publish: pkg/bundler
+	cd pkg/bundler; npm publish

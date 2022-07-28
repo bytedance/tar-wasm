@@ -1,6 +1,6 @@
 {
   "dependencies": {
-    "tar-wasm": "../pkg",
+    "tar-wasm": "../pkg/nodejs",
     "lorem-ipsum": "^2.0.4",
     "tar-js": "^0.3.0",
     "tarts": "^2.0.1"
@@ -12,8 +12,7 @@
     "typescript": "^4.6.3"
   },
   "scripts": {
-    "build": "tsc",
-    "bench": "npm run build; node ./out/bench.js"
+    "bench": "ts-node ./bench.ts"
   },
   "type": "module"
 }

@@ -3,6 +3,7 @@ import { TarBuilder } from "tar-wasm";
 import TarJs from "tar-js";
 import Tarts from "tarts";
 import { LoremIpsum } from "lorem-ipsum";
+import { TextEncoder } from "util";
 
 const files: Record<string, Uint8Array> = {};
 

@@ -58,8 +58,8 @@ See `./benchmark` folder for more details.
 
 ## TODO
 
-- [] Include a Promise API working from a separate worker thread.
-- [] Add support for reading and writing tar files.
-- [] Support of Node.js environment
+- [ ] Include a Promise API working from a separate worker thread.
+- [ ] Add support for reading and writing tar files.
+- [x] Support of Node.js environment
 - [x] Tests
 - [x] Benchmarks

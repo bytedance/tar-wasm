@@ -1,4 +1,4 @@
-# tar-wasm
+# @bytedance/tar-wasm
 
 An experimental wasm-based tar implementation for browsers.
 
@@ -7,13 +7,13 @@ An experimental wasm-based tar implementation for browsers.
 ### Install
 
 ```bash
-npm install tar-wasm
+npm install @bytedance/tar-wasm
 ```
 
 ### Example
 
 ```typescript
-import { TarBuilder } from "tar-wasm";
+import { TarBuilder } from "@bytedance/tar-wasm";
 
 // Create a new tar builder
 const tarBuilder = new TarBuilder();
@@ -49,9 +49,9 @@ Results on my machine
 ```
 Running benchmark...
 Generated 1001 random files to test in 191.13816452026367ms
-tar-wasm: 24.62919044494629ms (baseline)
-tar-js: 3943.49857711792ms (160.11482740095886x slower than tar-wasm)
-tarts: 1251.595199584961ms (50.817553357373065x slower than tar-wasm)
+@bytedance/tar-wasm: 24.62919044494629ms (baseline)
+tar-js: 3943.49857711792ms (160.11482740095886x slower than @bytedance/tar-wasm)
+tarts: 1251.595199584961ms (50.817553357373065x slower than @bytedance/tar-wasm)
 ```
 
 See `./benchmark` folder for more details.

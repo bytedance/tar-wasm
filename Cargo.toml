@@ -5,6 +5,7 @@ authors = ["Eli Gao <eli.gao@bytedance.com>"]
 edition = "2018"
 description = "An experimental wasm-based tar implementation for browsers."
 license = "MIT"
+repository = "https://github.com/bytedance/tar-wasm"
 
 [lib]
 crate-type = ["cdylib", "rlib"]

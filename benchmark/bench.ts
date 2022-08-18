@@ -27,7 +27,7 @@
  */
 
 import { performance } from "perf_hooks";
-import { TarBuilder } from "tar-wasm";
+import { TarBuilder } from "@bytedance/tar-wasm";
 import TarJs from "tar-js";
 import Tarts from "tarts";
 import { LoremIpsum } from "lorem-ipsum";

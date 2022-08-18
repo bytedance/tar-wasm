@@ -12,6 +12,7 @@ build: pkg/bundler
 
 pkg/bundler: src/* Cargo.toml README.md
 	wasm-pack build --target bundler --out-dir pkg/bundler
+	sed -i -e 's/"name": "tar-wasm"/"name": "@bytedance\/tar-wasm"/g' pkg/bundler/package.json
 
 test: src tests Cargo.toml
 	wasm-pack test --chrome --headless
@@ -19,6 +20,7 @@ test: src tests Cargo.toml
 # for benchmarking only
 pkg/nodejs: src/* Cargo.toml README.md
 	wasm-pack build --target nodejs --out-dir pkg/nodejs
+	sed -i -e 's/"name": "tar-wasm"/"name": "@bytedance\/tar-wasm"/g' pkg/nodejs/package.json
 
 clean: 
 	rm -rf ./pkg ./target ./benchmark/node_modules
@@ -30,5 +32,4 @@ bench: pkg/nodejs
 # updating the package name with sed before publish
 # because wasm-pack doesn't support '@' in the Cargo.toml package name
 publish: pkg/bundler
-	sed -i -e 's/"name": "tar-wasm"/"name": "@bytedance\/tar-wasm"/g' pkg/*/package.json
 	cd pkg/bundler; npm publish

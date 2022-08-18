@@ -5,7 +5,7 @@ existing tar implementations.
 
 ## Note
 
-To run this benchmark, we need to compile the package targetting `nodejs` as it is easier to test in Node.js.
+To run this benchmark, we need to compile the package targeting `nodejs` as it is easier to test in Node.js.
 The performance should be similar in both Node.js and Chrome as they're both using v8 engines.
 
 See: https://rustwasm.github.io/docs/wasm-pack/commands/build.html?#target

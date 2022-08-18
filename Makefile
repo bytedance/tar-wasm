@@ -9,7 +9,8 @@ build: pkg/bundler
 
 # wasm-pack targets bundlers by default
 # https://rustwasm.github.io/docs/wasm-pack/commands/build.html#target
-
+# updating the package name with sed before publish
+# because wasm-pack doesn't support '@' in the Cargo.toml package name
 pkg/bundler: src/* Cargo.toml README.md
 	wasm-pack build --target bundler --out-dir pkg/bundler
 	sed -i -e 's/"name": "tar-wasm"/"name": "@bytedance\/tar-wasm"/g' pkg/bundler/package.json
@@ -29,7 +30,5 @@ clean:
 bench: pkg/nodejs
 	cd benchmark; yarn install; yarn bench;
 
-# updating the package name with sed before publish
-# because wasm-pack doesn't support '@' in the Cargo.toml package name
 publish: pkg/bundler
 	cd pkg/bundler; npm publish

@@ -20,6 +20,8 @@ const tarBuilder = new TarBuilder();
 
 // Optionally enable gzip compression
 // tarBuilder.set_gzip(true);
+// However, I recommend using the Compression Streams API instead when possible:
+// https://developer.mozilla.org/en-US/docs/Web/API/Compression_Streams_API
 
 for (const file of files) {
   // Add files to the tar

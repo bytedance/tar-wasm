@@ -1,6 +1,8 @@
 # @bytedance/tar-wasm
 
-An experimental wasm-based tar implementation for browsers.
+A faster\* experimental wasm-based tar implementation for browsers.
+
+\*50-160x faster, see benchmarks below.
 
 ## Usage
 
@@ -44,6 +46,8 @@ We recommend using [Web Worker](https://developer.mozilla.org/en-US/docs/Web/API
 You may want to refer to [Greenlet](https://github.com/developit/greenlet) for a lightweight implementation.
 
 ## Benchmarks
+
+According to my benchmark, it can be 50-160x faster than existing JavaScript implementations on NPM, depending on the browser and the file size.
 
 Results on my machine
 (Intel(R) Xeon(R) Platinum 8269CY CPU @ 2.50GHz):

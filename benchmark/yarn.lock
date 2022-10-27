@@ -2,8 +2,8 @@
 # yarn lockfile v1
 
 
-"@bytedance/tar-wasm@../pkg/nodejs":
-  version "0.1.5"
+"@bytedance/tar-wasm@../pkg/isomorphic":
+  version "0.1.6"
 
 "@cspotcode/source-map-support@^0.8.0":
   version "0.8.1"

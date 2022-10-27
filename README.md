@@ -60,7 +60,7 @@ tar-js: 3943.49857711792ms (160.11482740095886x slower than @bytedance/tar-wasm)
 tarts: 1251.595199584961ms (50.817553357373065x slower than @bytedance/tar-wasm)
 ```
 
-See `./benchmark` folder for more details.
+See `./examples/nodejs-benchmark` folder for more details.
 
 ## TODO
 

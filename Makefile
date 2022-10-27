@@ -33,7 +33,7 @@ test: src tests Cargo.toml
 	wasm-pack test --chrome --headless
 
 bench: pkg/isomorphic
-	cd benchmark; yarn install; yarn bench;
+	cd examples/nodejs-benchmark; yarn install; yarn bench;
 
 clean:
 	rm -rf ./pkg ./target ./benchmark/node_modules

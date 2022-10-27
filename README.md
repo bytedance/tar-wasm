@@ -1,6 +1,6 @@
 # @bytedance/tar-wasm
 
-A faster\* experimental wasm-based tar implementation for browsers.
+A faster\* experimental wasm-based tar implementation for browsers and Node.js.
 
 \*50-160x faster, see benchmarks below.
 

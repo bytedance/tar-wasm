@@ -1,6 +1,6 @@
 [package]
 name = "tar-wasm"
-version = "0.1.6"
+version = "0.1.7"
 authors = ["Eli Gao <eli.gao@bytedance.com>"]
 edition = "2018"
 description = "An experimental wasm-based tar implementation for browsers."

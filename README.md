@@ -60,12 +60,12 @@ tar-js: 3943.49857711792ms (160.11482740095886x slower than @bytedance/tar-wasm)
 tarts: 1251.595199584961ms (50.817553357373065x slower than @bytedance/tar-wasm)
 ```
 
-See `./benchmark` folder for more details.
+See `./examples/nodejs-benchmark` folder for more details.
 
 ## TODO
 
 - [ ] Include a Promise API working from a separate worker thread.
 - [ ] Add support for reading and writing tar files.
-- [ ] Support of Node.js environment
+- [x] Support of Node.js environment
 - [x] Tests
 - [x] Benchmarks

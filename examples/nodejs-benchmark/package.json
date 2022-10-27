@@ -1,6 +1,6 @@
 {
   "dependencies": {
-    "@bytedance/tar-wasm": "../pkg/nodejs",
+    "@bytedance/tar-wasm": "../../pkg/isomorphic",
     "lorem-ipsum": "^2.0.4",
     "tar-js": "^0.3.0",
     "tarts": "^2.0.1"

@@ -9,11 +9,11 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@bytedance/tar-wasm": "../../pkg/isomorphic",
+    "lorem-ipsum": "^2.0.4",
     "next": "13.0.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "@bytedance/tar-wasm": "../../pkg/isomorphic",
-    "lorem-ipsum": "^2.0.4",
     "tar-js": "^0.3.0",
     "tarts": "^2.0.1"
   },
@@ -21,10 +21,10 @@
     "@types/node": "18.11.7",
     "@types/react": "18.0.24",
     "@types/react-dom": "18.0.8",
+    "@types/tar-js": "^0.3.2",
     "eslint": "8.26.0",
     "eslint-config-next": "13.0.0",
-    "typescript": "4.8.4",
-    "@types/tar-js": "^0.3.2",
-    "ts-node": "^10.7.0"
+    "ts-node": "^10.7.0",
+    "typescript": "4.8.4"
   }
 }

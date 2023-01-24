@@ -3,5 +3,6 @@
   "features": {
     "ghcr.io/devcontainers/features/rust:1": {},
     "ghcr.io/devcontainers/features/node:1": {}
-  }
+  },
+  "onCreateCommand": "curl https://rustwasm.github.io/wasm-pack/installer/init.sh -sSf | sh"
 }

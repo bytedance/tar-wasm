@@ -31,7 +31,7 @@ for (const file of files) {
 }
 
 // Finish building the tar and get the result
-const tar: UInt8Array = tarBuilder.finish();
+const tar: Uint8Array = tarBuilder.finish();
 
 // Optionally convert the tar to a Blob or whatever
 const tarBlob = new Blob([tar], { type: "application/x-tar" });
